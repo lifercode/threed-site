@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 16 19/var(--tw-bg-opacity));
+  color: hsla(0,0%,100%,.8);
+}

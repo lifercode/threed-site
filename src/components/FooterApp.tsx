@@ -1,15 +1,105 @@
-function Widget() {
+const get_start = [
+  {
+    href: 'https://studio.threed.world',
+    target: '_self',
+    label: 'Studio'
+  },
+  {
+    href: '/community',
+    target: '_self',
+    label: 'Community'
+  },
+  {
+    href: '/contribute',
+    target: '_self',
+    label: 'Contribute'
+  }
+]
+
+const docs = [
+  {
+    href: 'http://docs.threed.world/docs/contribute/types-of-contributions',
+    target: '_blank',
+    label: 'Types of contributions'
+  },
+  {
+    href: 'http://docs.threed.world/docs/contribute/code-pattern-reference',
+    target: '_blank',
+    label: 'Code pattern reference'
+  },
+  {
+    href: 'http://docs.threed.world/docs/contribute/working-in-studio-repository',
+    target: '_blank',
+    label: 'Code base guide'
+  },
+]
+
+const community = [
+  {
+    href: 'https://twitter.com/OpenThreeD',
+    target: '_blank',
+    label: 'Twitter'
+  },
+  {
+    href: 'https://github.com/open-threed/studio',
+    target: '_blank',
+    label: 'GitHub'
+  },
+  {
+    href: 'https://discord.gg/hxbwuDckeg',
+    target: '_blank',
+    label: 'Discord'
+  }
+]
+
+const company = [
+  {
+    href: 'https://opencollective.com/open-threed',
+    target: '_blank',
+    label: 'Open Collective'
+  },
+  {
+    href: '/roadmap',
+    target: '_self',
+    label: 'Roadmap'
+  },
+  {
+    href: 'mailto:threedstudiocore@gmail.com',
+    target: '_blank',
+    label: 'Contact'
+  },
+  {
+    href: 'https://open-threed.hashnode.dev/',
+    target: '_blank',
+    label: 'Blog'
+  }
+]
+
+type MenuItem = {
+  href: string
+  target: string
+  label: string
+}
+
+type WidgetProps = {
+  title: string
+  menu: MenuItem[]
+}
+
+function Widget({ title, menu }: WidgetProps) {
   return (
     <>
       <h4 className="text-xs font-semibold uppercase tracking-wide text-white dark:text-white">
-        Section
+        {title}
       </h4>
       <ul className="mx-0 mt-4 list-none space-y-2 text-sm">
-        <li>
-          <a href="" className="text-white-500 inline-flex items-center space-x-1 hover:text-white dark:text-white/50 dark:hover:text-white">
-            Item
-          </a>
-        </li>
+        {menu.map((item, index) => (
+          <li key={index}>
+            <a href={item.href} target={item.target} className="text-white-500 inline-flex items-center space-x-1 hover:text-white dark:text-white/50 dark:hover:text-white">
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </>
   )
@@ -29,18 +119,18 @@ export function FooterWidgets() {
       <div className="mt-12 ml-6 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
         <div className="md:grid md:grid-cols-2 md:gap-8">
           <div>
-            <Widget />
+            <Widget menu={get_start} title="Get Started" />
           </div>
           <div className="mt-12 md:mt-0">
-            <Widget />
+            <Widget menu={docs} title="Docs" />
           </div>
         </div>
         <div className="md:grid md:grid-cols-2 md:gap-8">
           <div>
-            <Widget />
+            <Widget menu={community} title="Community" />
           </div>
           <div className="mt-12 md:mt-0">
-            <Widget />
+            <Widget menu={company} title="Company" />
           </div>
         </div>
       </div>
@@ -51,7 +141,7 @@ export function FooterWidgets() {
 export default function FooterApp() {
   return (
     <div className="mt-12 border-t border-gray-900 bg-gray-50 dark:bg-black md:mt-24">
-      <div className="hidden">
+      <div className="">
         <FooterWidgets />
       </div>
       <div className="mx-auto py-16 text-center text-sm text-gray-300">

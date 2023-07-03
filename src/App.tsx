@@ -1,15 +1,9 @@
-import FooterApp from "./components/FooterApp"
-import HeaderApp from "./components/HeaderApp"
-import PresentationSection from "./components/PresentationSection"
+import Router from "./router"
 
 function App() {
 
   return (
-    <>
-      <HeaderApp />
-      <PresentationSection />
-      <FooterApp />
-    </>
+    <Router />
   )
 }
 

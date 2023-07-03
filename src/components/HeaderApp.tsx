@@ -1,9 +1,37 @@
+const menu = [
+  {
+    href: 'https://docs.threed.world',
+    target: '_blank',
+    label: 'Docs'
+  },
+  {
+    href: 'https://open-threed.hashnode.dev/',
+    target: '_blank',
+    label: 'Blog'
+  },
+  {
+    href: 'https://twitter.com/OpenThreeD',
+    target: '_blank',
+    label: 'Twitter'
+  },
+  {
+    href: 'https://github.com/open-threed/studio',
+    target: '_blank',
+    label: 'GitHub'
+  },
+  {
+    href: 'https://discord.gg/hxbwuDckeg',
+    target: '_blank',
+    label: 'Discord'
+  }
+]
+
 export default function HeaderApp() {
   return (
     <header className="z-45-global-topbar w-full fixed z-50 z-45-global-topbar border-b border-gray-800 bg-black bg-opacity-90">
       <div className="mx-auto w-full px-4 md:px-8 lg:px-8 max-w-screen-1.5xl flex items-center justify-between h-16">
         <div className="flex items-center space-x-2.5">
-          <a href="" className="flex items-center space-x-2.5 font-bold text-gray-800 no-underline dark:text-white">
+          <a href="/" className="flex items-center space-x-2.5 font-bold text-gray-800 no-underline dark:text-white">
             Threed Studio
           </a>
         </div>
@@ -16,15 +44,11 @@ export default function HeaderApp() {
         </div>
         <nav className="hidden items-center divide-x divide-gray-200 dark:divide-gray-800 lg:flex">
           <div className="flex items-center pr-2 lg:space-x-4 lg:pr-8">
-            <a href="https://twitter.com/lifercode/status/1674461318269612040" target="_blank" className="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200">
-              <span>Twitter</span>
-            </a>
-            <a href="https://github.com/lifercode/studio-threed" target="_blank" className="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200">
-              <span>GitHub</span>
-            </a>
-            <a href="https://discord.gg/hxbwuDckeg" target="_blank" className="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200">
-              <span>Discord</span>
-            </a>
+            {menu.map((item, index) => (
+              <a key={index} href={item.href} target={item.target} className="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200">
+                <span>{item.label}</span>
+              </a>
+            ))}
           </div>
         </nav>
       </div>

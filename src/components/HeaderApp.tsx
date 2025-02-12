@@ -1,6 +1,6 @@
 const menu = [
   {
-    href: 'https://docs.threed.world',
+    href: 'https://open-threed-docs.vercel.app',
     target: '_blank',
     label: 'Docs'
   },

@@ -88,7 +88,7 @@ export default function PresentationSection() {
             </div>
             <div className="mt-20 flex justify-center">
               <div className="group relative">
-                <a href="https://studio.threed.world" className="relative z-10 block rounded-xl border-4 border-white/30 bg-white bg-clip-padding p-3 px-8 font-bold text-black">
+                <a href="https://studio-threed-world.vercel.app" className="relative z-10 block rounded-xl border-4 border-white/30 bg-white bg-clip-padding p-3 px-8 font-bold text-black">
                   🚀 Get started with Threed Studio
                 </a>
               </div>
